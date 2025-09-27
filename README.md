@@ -4,7 +4,7 @@
 ### Question: What is the primary purpose of the Data Definition Language (DDL) in Oracle?
 
 **Correct Answer:**  
-**b) Define and modify database structure** ✅
+**b) Define and modify database structure** 
 
 ---
 
