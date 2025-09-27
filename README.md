@@ -469,3 +469,52 @@ END;
 
 ---
 
+### Question: Which part of a trigger is executed when the trigger is fired?
+
+**Correct Answer:**  
+**a) Trigger body** 
+
+---
+
+### Detailed Answer (10 Marks)
+
+#### 1. Definition of Trigger
+- A **trigger** in Oracle SQL is a stored PL/SQL block that is **automatically executed** (fired) when a specified **event** occurs in the database (e.g., INSERT, UPDATE, DELETE).  
+- Triggers consist of **three main parts**: **Header, Event, and Body**.  
+
+#### 2. Parts of a Trigger
+1. **Trigger Header** → Defines the **name, timing (BEFORE/AFTER), and event (INSERT/UPDATE/DELETE)**.  
+2. **Trigger Event** → Specifies the condition or **database action** that activates the trigger.  
+3. **Trigger Body** → The actual **executable PL/SQL code** that runs when the trigger fires.  
+
+#### 3. Correct Answer Explanation
+- When a trigger is fired, the **trigger body** is the part that gets **executed**.  
+- The **header and event** only define *when* the trigger should fire.  
+- The **body contains the business logic** (SQL statements, conditions, validations).  
+
+#### 4. Syntax of a Trigger
+```sql
+CREATE OR REPLACE TRIGGER trg_salary_check
+BEFORE INSERT OR UPDATE ON Employee
+FOR EACH ROW
+BEGIN
+   -- Trigger Body (executed when fired)
+   IF :NEW.salary < 3000 THEN
+      RAISE_APPLICATION_ERROR(-20001, 'Salary must be at least 3000');
+   END IF;
+END;
+````
+
+#### 5. Example Explanation
+
+* **Trigger Header**: `CREATE OR REPLACE TRIGGER trg_salary_check BEFORE INSERT OR UPDATE ON Employee`
+* **Trigger Event**: `BEFORE INSERT OR UPDATE`
+* **Trigger Body**: The PL/SQL block inside `BEGIN ... END;` which checks salary and raises an error.
+
+#### 6. Conclusion
+
+* The **trigger body** is the portion that actually **executes the code** when the trigger fires.
+* It contains the **procedural logic and SQL operations** that enforce business rules or maintain integrity in Oracle SQL.
+
+---
+
