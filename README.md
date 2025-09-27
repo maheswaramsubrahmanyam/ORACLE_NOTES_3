@@ -349,3 +349,64 @@ ON e.dept_id = d.dept_id;
 * It is widely used in **reporting, auditing, and data validation** scenarios.
 
 ---
+
+### Question: Which of the following is not a valid PL/SQL block?
+
+**Correct Answer:**  
+**c) Sequence block** 
+
+---
+
+### Detailed Answer (10 Marks)
+
+#### 1. Definition of PL/SQL Block
+- A **PL/SQL block** is a **unit of PL/SQL code** that can be executed in Oracle.  
+- Each block can include **declarations, executable statements, and exception handling**.  
+- PL/SQL blocks are the foundation for writing **procedures, functions, triggers, and anonymous programs**.
+
+#### 2. Types of PL/SQL Blocks
+| Block Type | Description |
+|------------|-------------|
+| Anonymous Block | A PL/SQL block that is **not stored** in the database and is executed immediately. |
+| Stored Procedure | A **named block** stored in the database that can be **called repeatedly**. |
+| Function Block | A named block that **returns a value** and can be used in SQL or PL/SQL. |
+
+#### 3. Invalid Block
+- **Sequence block** is **not a valid PL/SQL block**.  
+- Sequence is a **database object** used to generate **unique numeric values**, not a PL/SQL program block.  
+- Confusing sequence with a PL/SQL block is a common mistake.  
+
+#### 4. Syntax Examples of Valid Blocks
+```sql
+-- Anonymous block
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Hello, PL/SQL!');
+END;
+
+-- Stored procedure
+CREATE OR REPLACE PROCEDURE greet_user(name VARCHAR2) IS
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Hello, ' || name);
+END;
+
+-- Function block
+CREATE OR REPLACE FUNCTION get_bonus(salary NUMBER)
+RETURN NUMBER IS
+BEGIN
+   RETURN salary * 0.10;
+END;
+````
+
+#### 5. Explanation
+
+* **Anonymous block** → Temporary, runs immediately.
+* **Stored procedure** → Reusable, stored in database.
+* **Function block** → Returns a value.
+* **Sequence block** → Does **not exist** in PL/SQL; sequence is a **database object**, not a program block.
+
+#### 6. Conclusion
+
+* The correct answer is **Sequence block**.
+* Understanding valid PL/SQL block types is essential for **programming and database automation** in Oracle.
+
+---
