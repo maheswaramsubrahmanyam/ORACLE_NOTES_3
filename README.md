@@ -234,3 +234,59 @@ MODIFY emp_name NOT NULL;
 * The **NOT NULL constraint** is the primary mechanism in Oracle SQL to ensure that a column **cannot have NULL values**.
 * It is **fundamental for database design**, especially for fields that must always contain valid data.
 
+
+
+### Question: Which database object is used to generate unique values automatically?
+
+**Correct Answer:**  
+**c) Sequence** 
+
+---
+
+### Detailed Answer (10 Marks)
+
+#### 1. Definition
+- A **sequence** in Oracle SQL is a database object that automatically generates **unique numeric values**.  
+- It is commonly used for **primary key values** or any field that requires a unique identifier.  
+- Sequences **ensure uniqueness** without manual intervention.  
+
+#### 2. Purpose of Sequence
+- Automatically generates unique numbers **for new records**.  
+- Avoids **duplicate values** in primary key or unique columns.  
+- Supports **high-speed inserts** in large tables.  
+- Can generate numbers in **ascending, descending, or customized increments**.  
+
+#### 3. Syntax to Create a Sequence
+```sql
+-- Basic sequence
+CREATE SEQUENCE emp_seq
+START WITH 1       -- Starting value
+INCREMENT BY 1     -- Increment step
+NOCACHE            -- Disable caching (optional)
+NOCYCLE;           -- Do not restart sequence after reaching max
+
+-- Using sequence in INSERT statement
+INSERT INTO Employee(emp_id, emp_name, salary)
+VALUES(emp_seq.NEXTVAL, 'Arun', 50000);
+````
+
+#### 4. Explanation
+
+* `emp_seq.NEXTVAL` gives the **next unique number** from the sequence.
+* `emp_seq.CURRVAL` gives the **current number** generated in the session.
+* Sequences are **independent of tables**, so multiple tables can use the same sequence.
+* They improve **efficiency** in generating primary keys for large-scale applications.
+
+#### 5. Features of Sequences
+
+* **Auto-increment**: Numbers increase automatically.
+* **Customizable**: Can set start value, increment, min/max values.
+* **Cycle Option**: Can restart from min value when max is reached (optional).
+* **Cache Option**: Improves performance by preallocating values.
+
+#### 6. Conclusion
+
+* The **Sequence object** in Oracle SQL is the **primary tool for generating unique values automatically**.
+* It ensures **data integrity, uniqueness, and efficiency**, especially for primary key columns in large databases.
+
+
