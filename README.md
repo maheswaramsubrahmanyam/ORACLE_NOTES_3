@@ -234,14 +234,12 @@ MODIFY emp_name NOT NULL;
 * The **NOT NULL constraint** is the primary mechanism in Oracle SQL to ensure that a column **cannot have NULL values**.
 * It is **fundamental for database design**, especially for fields that must always contain valid data.
 
-
+---
 
 ### Question: Which database object is used to generate unique values automatically?
 
 **Correct Answer:**  
 **c) Sequence** 
-
----
 
 ### Detailed Answer (10 Marks)
 
@@ -290,3 +288,64 @@ VALUES(emp_seq.NEXTVAL, 'Arun', 50000);
 * It ensures **data integrity, uniqueness, and efficiency**, especially for primary key columns in large databases.
 
 
+---
+
+### Question: What type of join includes unmatched rows from the outer table?
+
+**Correct Answer:**  
+**b) Outer join** 
+
+---
+
+### Detailed Answer (10 Marks)
+
+#### 1. Definition
+- An **outer join** is a type of SQL join that returns all rows from **one or both tables**, including **unmatched rows**.  
+- It ensures that rows from the “outer” table appear in the result even if there is **no matching row** in the other table.  
+
+#### 2. Purpose of Outer Join
+- Retrieves **complete data** from the main table (outer table).  
+- Useful for identifying **missing or unmatched records**.  
+- Supports reporting where **all records must be included**, even if related data is absent.  
+
+#### 3. Types of Outer Joins
+| Type | Description |
+|------|-------------|
+| LEFT OUTER JOIN | Returns all rows from the left table and matching rows from the right table. |
+| RIGHT OUTER JOIN | Returns all rows from the right table and matching rows from the left table. |
+| FULL OUTER JOIN | Returns all rows when there is a match in one of the tables; unmatched rows from both sides are included. |
+
+#### 4. Syntax & Examples
+```sql
+-- LEFT OUTER JOIN example
+SELECT e.emp_name, d.dept_name
+FROM employee e
+LEFT OUTER JOIN department d
+ON e.dept_id = d.dept_id;
+
+-- RIGHT OUTER JOIN example
+SELECT e.emp_name, d.dept_name
+FROM employee e
+RIGHT OUTER JOIN department d
+ON e.dept_id = d.dept_id;
+
+-- FULL OUTER JOIN example
+SELECT e.emp_name, d.dept_name
+FROM employee e
+FULL OUTER JOIN department d
+ON e.dept_id = d.dept_id;
+````
+
+#### 5. Explanation
+
+* **LEFT OUTER JOIN** ensures all employees appear, even if they are **not assigned to any department**.
+* **RIGHT OUTER JOIN** ensures all departments appear, even if they have **no employees**.
+* **FULL OUTER JOIN** combines both, including all employees and departments, whether matched or unmatched.
+* Outer joins are critical for **reporting and data analysis** where missing relationships are meaningful.
+
+#### 6. Conclusion
+
+* The **outer join** is the join type that includes **unmatched rows from the outer table**, maintaining **data completeness** in Oracle SQL.
+* It is widely used in **reporting, auditing, and data validation** scenarios.
+
+---
