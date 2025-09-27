@@ -61,3 +61,61 @@ DROP TABLE Employee;
 
 
 ---
+
+### Question: Which SQL function is used to convert data from one type to another?
+
+**Correct Answer:**  
+**d) Conversion function** 
+
+---
+
+### Detailed Answer (10 Marks)
+
+#### 1. Definition
+- Conversion functions in SQL are used to **change the data type of a value** from one type to another.  
+- They are essential when combining or comparing different types of data in queries, calculations, or reports.  
+- Commonly used in Oracle SQL to **ensure type compatibility**.
+
+#### 2. Purpose of Conversion Functions
+- Convert **numbers to strings**, **strings to numbers**, **dates to strings**, etc.  
+- Help prevent **type mismatch errors** in SQL statements.  
+- Enable **formatting of data** for reporting or calculations.  
+
+#### 3. Common Oracle Conversion Functions
+| Function | Description |
+|----------|-------------|
+| TO_CHAR  | Converts a number or date to a string |
+| TO_NUMBER | Converts a string to a numeric value |
+| TO_DATE  | Converts a string to a date value |
+| CAST     | Converts data from one type to another using ANSI standard syntax |
+
+#### 4. Syntax & Examples
+```sql
+-- Convert number to string
+SELECT TO_CHAR(12345) FROM dual;
+
+-- Convert string to number
+SELECT TO_NUMBER('12345') + 10 FROM dual;
+
+-- Convert string to date
+SELECT TO_DATE('27-SEP-2025','DD-MON-YYYY') FROM dual;
+
+-- Using CAST
+SELECT CAST(salary AS VARCHAR2(10)) FROM Employee;
+````
+
+#### 5. Explanation
+
+* **TO_CHAR** is useful when formatting numbers or dates for display.
+* **TO_NUMBER** allows arithmetic operations on string inputs.
+* **TO_DATE** ensures strings representing dates can be used in date calculations.
+* **CAST** is flexible and follows ANSI SQL standards.
+
+#### 6. Conclusion
+
+* The primary function to **convert data types** in Oracle SQL is the **Conversion Function**.
+* Proper use ensures **data consistency, prevents errors, and supports accurate calculations and reporting**.
+
+```
+
+---
