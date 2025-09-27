@@ -410,3 +410,62 @@ END;
 * Understanding valid PL/SQL block types is essential for **programming and database automation** in Oracle.
 
 ---
+
+
+### Question: What is a key advantage of PL/SQL over SQL?
+
+**Correct Answer:**  
+**b) Supports control structures and procedural logic** 
+
+---
+
+### Detailed Answer (10 Marks)
+
+#### 1. Definition
+- **PL/SQL (Procedural Language/SQL)** is Oracle's extension of SQL that **combines SQL with procedural programming features**.  
+- It allows developers to write **blocks of code** that include **conditions, loops, and exception handling**, which standard SQL cannot handle on its own.  
+
+#### 2. Key Advantage over SQL
+- While SQL is a **declarative language** used for querying and manipulating data, **PL/SQL adds procedural logic**, making it more **powerful and flexible**.  
+- It allows **complex business logic**, **conditional processing**, and **looping** to be executed inside the database.  
+
+#### 3. Features Supporting This Advantage
+| Feature | Description |
+|---------|-------------|
+| Control Structures | IF-ELSE, CASE statements for decision making |
+| Loops | FOR, WHILE, and simple loops to iterate over data |
+| Exception Handling | TRY-CATCH equivalent in PL/SQL to handle errors |
+| Variables & Constants | Store and manipulate data temporarily inside PL/SQL blocks |
+| Modular Programming | Procedures, functions, and packages for reusable code |
+
+#### 4. Syntax Examples
+```sql
+-- Conditional statement in PL/SQL
+BEGIN
+   IF salary > 50000 THEN
+      DBMS_OUTPUT.PUT_LINE('High Salary');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('Normal Salary');
+   END IF;
+END;
+
+-- Loop example
+BEGIN
+   FOR i IN 1..5 LOOP
+      DBMS_OUTPUT.PUT_LINE('Iteration: ' || i);
+   END LOOP;
+END;
+````
+
+#### 5. Explanation
+
+* SQL alone **cannot perform loops, condition checks, or exception handling**.
+* PL/SQL allows **automation of repetitive tasks** and **complex logic inside the database**.
+* It reduces the need for **external programming languages** to manipulate data.
+
+#### 6. Conclusion
+
+* The key advantage of PL/SQL over SQL is its ability to **support control structures and procedural logic**, making it ideal for **writing robust, efficient, and reusable programs** inside Oracle databases.
+
+---
+
