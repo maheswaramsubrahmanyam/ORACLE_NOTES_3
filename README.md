@@ -118,3 +118,63 @@ SELECT CAST(salary AS VARCHAR2(10)) FROM Employee;
 
 
 ---
+
+### Question: Which constraint ensures that a foreign key value matches a primary key value?
+
+**Correct Answer:**  
+**c) Referential constraint** 
+
+---
+
+### Detailed Answer (10 Marks)
+
+#### 1. Definition
+- A **referential constraint** (or foreign key constraint) ensures **data integrity between two tables**.  
+- It guarantees that the **value in a foreign key column matches a primary key value** in the referenced table.  
+- Helps maintain **consistency in relational databases**.  
+
+#### 2. Purpose of Referential Constraints
+- Enforces **relationships between tables**.  
+- Prevents **orphan records** (foreign key pointing to a non-existent primary key).  
+- Supports **relational integrity** in a database.  
+- Ensures that **changes in parent table** are properly handled in child tables.  
+
+#### 3. Syntax
+```sql
+-- Creating a table with a foreign key
+CREATE TABLE Department (
+    dept_id NUMBER PRIMARY KEY,
+    dept_name VARCHAR2(50)
+);
+
+CREATE TABLE Employee (
+    emp_id NUMBER PRIMARY KEY,
+    emp_name VARCHAR2(50),
+    dept_id NUMBER,
+    CONSTRAINT fk_dept FOREIGN KEY (dept_id)
+        REFERENCES Department(dept_id)
+        ON DELETE CASCADE
+);
+````
+
+#### 4. Explanation
+
+* `fk_dept` is the **referential constraint** linking `Employee.dept_id` to `Department.dept_id`.
+* If you try to insert an employee with a `dept_id` that doesn’t exist in `Department`, Oracle will **reject the operation**.
+* `ON DELETE CASCADE` ensures that deleting a department automatically deletes related employees.
+* Referential constraints maintain **logical consistency** across relational tables.
+
+#### 5. Types of Referential Actions
+
+* **CASCADE** → Automatically updates or deletes dependent rows.
+* **SET NULL** → Sets foreign key values to NULL if parent row is deleted.
+* **NO ACTION / RESTRICT** → Prevents deletion or update if dependent rows exist.
+
+#### 6. Conclusion
+
+* The **referential constraint** ensures **foreign key values match primary key values**, maintaining **referential integrity** in the database.
+* It is essential for designing **reliable and consistent relational databases** in Oracle SQL.
+
+
+
+---
