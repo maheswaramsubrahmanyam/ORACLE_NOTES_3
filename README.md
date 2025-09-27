@@ -178,3 +178,59 @@ CREATE TABLE Employee (
 
 
 ---
+
+
+Got it, sir! Here’s a **full-length, 10-mark style answer** in Markdown for this question:
+
+### Question: What type of constraint ensures that a column cannot have null values?
+
+**Correct Answer:**  
+**c) Not Null constraint** 
+
+---
+
+### Detailed Answer (10 Marks)
+
+#### 1. Definition
+- A **NOT NULL constraint** ensures that a column **must always have a value**; it cannot be left empty.  
+- It is a **column-level constraint** used to maintain **data integrity**.  
+- Ensures that important fields are **never missing** in a table.  
+
+#### 2. Purpose of NOT NULL Constraint
+- Prevents accidental insertion of **NULL values** in critical columns.  
+- Guarantees that **mandatory information** is always present.  
+- Often used for **primary key columns**, employee names, IDs, or other required fields.  
+- Enhances **database reliability** and avoids errors in queries or calculations.  
+
+#### 3. Syntax
+```sql
+-- While creating a table
+CREATE TABLE Employee (
+    emp_id NUMBER NOT NULL,
+    emp_name VARCHAR2(50) NOT NULL,
+    salary NUMBER
+);
+
+-- Adding NOT NULL constraint to existing table
+ALTER TABLE Employee
+MODIFY emp_name NOT NULL;
+````
+
+#### 4. Explanation
+
+* `emp_id` and `emp_name` columns cannot have NULL values.
+* Any attempt to insert a record without these values will **result in an error**.
+* NOT NULL is **simple but essential** for data consistency.
+* It can be combined with **primary key constraints**, as primary keys are always NOT NULL.
+
+#### 5. Advantages
+
+* Ensures **mandatory data** is present.
+* Reduces **data errors** in reporting and transactions.
+* Improves **database integrity** and enforces business rules.
+
+#### 6. Conclusion
+
+* The **NOT NULL constraint** is the primary mechanism in Oracle SQL to ensure that a column **cannot have NULL values**.
+* It is **fundamental for database design**, especially for fields that must always contain valid data.
+
