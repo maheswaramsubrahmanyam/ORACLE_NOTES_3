@@ -518,3 +518,54 @@ END;
 
 ---
 
+### Question: What type of trigger is executed instead of a triggering DML statement?
+
+**Correct Answer:**  
+**c) INSTEAD OF trigger** 
+
+---
+
+### Detailed Answer (10 Marks)
+
+#### 1. Definition
+- An **INSTEAD OF trigger** is a special type of trigger in Oracle SQL that is executed **in place of (instead of)** the triggering DML statement (INSERT, UPDATE, DELETE).  
+- Unlike normal triggers (`BEFORE` or `AFTER`), it **replaces** the actual DML operation with custom logic defined in the trigger body.  
+
+#### 2. Purpose of INSTEAD OF Triggers
+- Commonly used with **views**, where direct DML operations are not possible.  
+- Allows developers to define **custom behavior** for INSERT, UPDATE, or DELETE on views.  
+- Ensures **business rules and complex logic** are applied when performing DML on restricted objects.  
+
+#### 3. Difference from Other Triggers
+| Trigger Type    | Execution Timing |
+|-----------------|------------------|
+| BEFORE Trigger  | Executes **before** the DML statement. |
+| AFTER Trigger   | Executes **after** the DML statement. |
+| INSTEAD OF Trigger | Executes **instead of** the DML statement. |
+| ENABLE Trigger  | Refers to a **status** (enabled/disabled), not a type of trigger. |
+
+#### 4. Syntax of INSTEAD OF Trigger
+```sql
+CREATE OR REPLACE TRIGGER trg_emp_view
+INSTEAD OF INSERT ON emp_view
+FOR EACH ROW
+BEGIN
+   -- Trigger body executes instead of INSERT on view
+   INSERT INTO employee(emp_id, emp_name, dept_id)
+   VALUES(:NEW.emp_id, :NEW.emp_name, :NEW.dept_id);
+END;
+````
+
+#### 5. Explanation
+
+* Here, `emp_view` is a **view** created on the `employee` table.
+* Normally, inserting into a view may not be allowed.
+* Using an **INSTEAD OF trigger**, the insert request on the view is redirected to the **base table (employee)**.
+* This gives **greater flexibility** in handling complex views and enforcing business rules.
+
+#### 6. Conclusion
+
+* The **INSTEAD OF trigger** is executed **instead of the original DML statement**, making it especially useful for **DML operations on views**.
+* It allows Oracle developers to implement **customized insert, update, or delete logic** in scenarios where direct DML is not possible.
+
+---
