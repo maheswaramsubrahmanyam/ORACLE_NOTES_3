@@ -116,6 +116,5 @@ SELECT CAST(salary AS VARCHAR2(10)) FROM Employee;
 * The primary function to **convert data types** in Oracle SQL is the **Conversion Function**.
 * Proper use ensures **data consistency, prevents errors, and supports accurate calculations and reporting**.
 
-```
 
 ---
